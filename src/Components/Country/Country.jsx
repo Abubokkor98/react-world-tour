@@ -2,16 +2,16 @@ import React, { useState } from 'react'
 import './Country.css'
 
 export default function Country({country, handleVisitedCountry}) {
-    console.log(country);
+    // console.log(country);
     const {name, flags, population, area, cca3} = country;
 
     const [visited, setVisited] = useState(false);
 
     const handleVisited = () =>{
         setVisited(!visited);
-    }
+    }    
 
-    console.log(handleVisitedCountry);
+
 
   return (
     <div className={`country ${visited ? 'visited' : 'non-visited'}`}>
@@ -23,7 +23,7 @@ export default function Country({country, handleVisitedCountry}) {
         <button onClick={handleVisited}>{visited? "Visited" : 'Visit'}</button>
         {visited ? 'I Have Visited This Country.' : 'I want to Visit'}
         <br />
-        <button>Mark As Visited</button>
+        <button onClick={() => handleVisitedCountry(country)}>Mark As Visited</button>
 
     </div>
   )

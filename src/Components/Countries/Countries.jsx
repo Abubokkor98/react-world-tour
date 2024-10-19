@@ -9,7 +9,10 @@ export default function Countries() {
 
     const handleVisitedCountry = (country) =>{
         console.log("Add this to your visited country");
-        console.log(country);
+        
+        // Add visited countries to the DOM
+        const newVisitedCountries = [...visitedCountries, country];
+        setVisitedCountries(newVisitedCountries);
     }
 
     useEffect(()=>{
@@ -22,8 +25,11 @@ export default function Countries() {
     <div>
         <h3>Countries{countries.length}</h3>
         <div>
-            <h4>Visited Countries</h4>
+            <h4>Visited Countries: {visitedCountries.length}</h4>
             <ul>
+                {
+                    visitedCountries.map(country => <li key={country.cca3}>{country.name.common}</li>)
+                }
 
             </ul>
         </div>
